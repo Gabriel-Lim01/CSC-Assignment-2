@@ -1,0 +1,54 @@
+﻿<link rel="stylesheet" href="~/css/normalize.css" />
+<link rel="stylesheet" href="~/css/global.css" />
+<!-- Load Stripe.js on your website. -->
+<!--<script src="https://js.stripe.com/v3/"></script>-->
+
+<body>
+    <div class="togethere-background"></div>
+    <div class="sr-root">
+        <div class="sr-main">
+            <header class="sr-header">
+                <h1>The Life Time Talents</h1>
+            </header>
+            <h1>Choose a subscription plan</h1>
+
+            <div class="price-table-container">
+                <section>
+                    <!--<img src="/img/starter.png"
+                    width="120"
+                    height="120" />-->
+                    <div class="name">Free Plan</div>
+                    <div class="price">Free</div>
+                    <div class="duration" style="opacity: 0;">per month</div>
+                    <ul>
+                        <li>Upload photos</li>
+                        <li>View photos</li>
+                        <li>Change photos</li>
+                        <li>Remove photos</li>
+                        <li style="opacity: 0;">>a</li>
+                    </ul>
+                    <form action="RegisterFreeUser">
+                        <button>Select</button>
+                    </form>
+                </section>
+                <section>
+                    <!--<img src="/img/professional.png"
+                    width="120"
+                    height="120" />-->
+                    <div class="name">Premium Plan</div>
+                    <div class="price">$1.00</div>
+                    <div class="duration">per day</div>
+                    <ul>
+                        <li>Upload photos</li>
+                        <li>View photos</li>
+                        <li>Change photos</li>
+                        <li>Remove photos</li>
+                        <li style="color: red;">Comment on others' photos</li>
+                    </ul>
+                    <button id="pro-plan-btn">Select</button>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div id="error-message" class="error-message"></div>
+</body>
