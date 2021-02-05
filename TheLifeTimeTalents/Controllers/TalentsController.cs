@@ -11,24 +11,105 @@ namespace TheLifeTimeTalents.Controllers
     [ApiController]
     public class TalentsController : ControllerBase
     {
-        static readonly TalentRepository repository = new TalentRepository();
+        //static readonly TalentRepository repository = new TalentRepository();
 
+        //[HttpGet]
+        //public IEnumerable<Talent> GetAllTalents()
+        //{
+        //    return repository.GetAll();
+        //}
+
+        //[HttpGet("{id}")]
+        //public Talent GetTalent(int id)
+        //{
+        //    Talent item = repository.Get(id);
+        //    if (item == null)
+        //    {
+        //        throw new System.Web.Http.HttpResponseException(HttpStatusCode.NotFound);
+        //    }
+        //    return item;
+        //}
+
+        public TalentsController(AppDb db)
+        {
+            Db = db;
+        }
+
+        // GET api/blog
         [HttpGet]
-        public IEnumerable<Talent> GetAllTalents()
+        public async Task<IActionResult> GetLatest()
         {
-            return repository.GetAll();
+            await Db.Connection.OpenAsync();
+            var query = new TalentQuery(Db);
+            var result = await query.LatestPostsAsync();
+            return new OkObjectResult(result);
         }
 
+        // GET api/blog/5
         [HttpGet("{id}")]
-        public Talent GetTalent(int id)
+        public async Task<IActionResult> GetOne(int id)
         {
-            Talent item = repository.Get(id);
-            if (item == null)
-            {
-                throw new System.Web.Http.HttpResponseException(HttpStatusCode.NotFound);
-            }
-            return item;
+            await Db.Connection.OpenAsync();
+            var query = new TalentQuery(Db);
+            var result = await query.FindOneAsync(id);
+            if (result is null)
+                return new NotFoundResult();
+            return new OkObjectResult(result);
         }
+
+        // POST api/blog
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Talent body)
+        {
+            await Db.Connection.OpenAsync();
+            body.Db = Db;
+            await body.InsertAsync();
+            return new OkObjectResult(body);
+        }
+
+        // PUT api/blog/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutOne(int id, [FromBody] Talent body)
+        {
+            await Db.Connection.OpenAsync();
+            var query = new TalentQuery(Db);
+            var result = await query.FindOneAsync(id);
+            if (result is null)
+                return new NotFoundResult();
+            result.Name = body.Name;
+            result.ShortName = body.ShortName;
+            result.Reknown = body.Reknown;
+            result.Bio = body.Bio;
+            result.Url = body.Url;
+            await result.UpdateAsync();
+            return new OkObjectResult(result);
+        }
+
+        // DELETE api/blog/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteOne(int id)
+        {
+            await Db.Connection.OpenAsync();
+            var query = new TalentQuery(Db);
+            var result = await query.FindOneAsync(id);
+            if (result is null)
+                return new NotFoundResult();
+            await result.DeleteAsync();
+            return new OkResult();
+        }
+
+        // DELETE api/blog
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAll()
+        {
+            await Db.Connection.OpenAsync();
+            var query = new TalentQuery(Db);
+            await query.DeleteAllAsync();
+            return new OkResult();
+        }
+
+        public AppDb Db { get; }
+
     }
 }
 

@@ -4,6 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <DebugType>full</DebugType>
     <UserSecretsId>10c3c209-f97f-4088-8951-f752edd7a7f3</UserSecretsId>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="MySqlConnector" Version="1.2.1" />
     <PackageReference Include="Stripe.net" Version="39.34.0" />
   </ItemGroup>
 
