@@ -8623,19 +8623,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gabriel\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\CSC\\CSC Assignment 2\\CSC-Assignment-2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
       "projectName": "TheLifeTimeTalents",
-      "projectPath": "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
-      "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\CSC\\CSC Assignment 2\\CSC-Assignment-2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\CSC\\CSC Assignment 2\\CSC-Assignment-2\\TheLifeTimeTalents\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8688,7 +8688,7 @@
             "version": "[39.34.0, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
