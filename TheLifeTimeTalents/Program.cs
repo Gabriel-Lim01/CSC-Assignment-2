@@ -20,5 +20,16 @@ namespace TheLifeTimeTalents
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+
+        //public static IHostBuilder CreateWHostBuilder(string[] args)
+        //{
+        //    DotNetEnv.Env.Load();
+        //    return WebHost.CreateDefaultBuilder(args)
+        //        .ConfigureWebHostDefaults(webBuilder =>
+        //        {
+        //            webBuilder.UseStartup<Startup>();
+        //            webBuilder.UseWebRoot(Environment.GetEnvironmentVariable("STATIC_DIR"));
+        //        });
+        //}
     }
 }
