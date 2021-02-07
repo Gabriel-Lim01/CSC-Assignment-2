@@ -62,12 +62,12 @@ using TheLifeTimeTalents.Models;
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(25, 136, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9f3636f99a2844f19268dc8ad60b1b15", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "07ba2211a5eb4d01a5664880d5ca3413", async() => {
                 BeginContext(31, 70, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <title>Register Page</title>\r\n    ");
                 EndContext();
                 BeginContext(101, 51, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "60d0758526ed4135bf2ef0b249afb2a3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f4d25ce0da264b1d8f94aaefa0aed88a", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -100,7 +100,7 @@ using TheLifeTimeTalents.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(163, 1720, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "40fe6b14d00b4c91bb8043084ff3661a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48613ed326bb411ab3e8eec19dbea252", async() => {
                 BeginContext(169, 363, true);
                 WriteLiteral(@"
     <div id=""login"">
@@ -112,7 +112,7 @@ using TheLifeTimeTalents.Models;
                         ");
                 EndContext();
                 BeginContext(532, 1242, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7de668bb24e04aca9f361c5f7f49e3c4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c431ece8cf54416ba9c404bcec848258", async() => {
                     BeginContext(591, 1176, true);
                     WriteLiteral(@"
                             <h3 class=""text-center text-info"">Register</h3>

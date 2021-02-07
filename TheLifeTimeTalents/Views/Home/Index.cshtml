@@ -2,190 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-@*<link rel="stylesheet" href="~/css/mystyle.css" />
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-
-    <form id="form1" runat="server" style="padding-top: 50px">
-        <div>
-            <div id="searcharea">
-                <label for="search">Talents Search</label>
-                <p>Enter the name or info about a speaker</p>
-                <input type="search" name="search" id="search" placeholder="name or info" />
-            </div>
-        </div>
-    </form>
-
-    <div id="update"></div>
-
-    <script>
-        $('#search').keyup(function () {
-
-            var jsonData = [
-                {
-                    "Id": 0,
-                    "Name": "Barot Bellingham",
-                    "ShortName": "Barot_Bellingham",
-                    "Reknown": "Royal Academy of Painting and Sculpture",
-                    "Bio": "Barot has just finished his final year at The Royal Academy of Painting and Sculpture, where he excelled in glass etching paintings and portraiture. Hailed as one of the most diverse artists of his generation, Barot is equally as skilled with watercolors as he is with oils, and is just as well-balanced in different subject areas. Barot's collection entitled \"The Un-Collection\" will adorn the walls of Gilbert Hall, depicting his range of skills and sensibilities - all of them, uniquely Barot, yet undeniably different"
-                },
-                {
-                    "Id": 1,
-                    "Name": "Jonathan G. Ferrar II",
-                    "ShortName": "Jonathan_Ferrar",
-                    "Reknown": "Artist to Watch in 2012",
-                    "Bio": "The Artist to Watch in 2012 by the London Review, Johnathan has already sold one of the highest priced-commissions paid to an art student, ever on record. The piece, entitled Gratitude Resort, a work in oil and mixed media, was sold for $750,000 and Jonathan donated all the proceeds to Art for Peace, an organization that provides college art scholarships for creative children in developing nations"
-                },
-                {
-                    "Id": 2,
-                    "Name": "Hillary Hewitt Goldwynn-Post",
-                    "ShortName": "Hillary_Goldwynn",
-                    "Reknown": "New York University",
-                    "Bio": "Hillary is a sophomore art sculpture student at New York University, and has already won all the major international prizes for new sculptors, including the Divinity Circle, the International Sculptor's Medal, and the Academy of Paris Award. Hillary's CAC exhibit features 25 abstract watercolor paintings that contain only water images including waves, deep sea, and river."
-                },
-                {
-                    "Id": 3,
-                    "Name": "Hassum Harrod",
-                    "ShortName": "Hassum_Harrod",
-                    "Reknown": "Art College in New Dehli",
-                    "Bio": "The Art College in New Dehli has sponsored Hassum on scholarship for his entire undergraduate career at the university, seeing great promise in his contemporary paintings of landscapes - that use equal parts muted and vibrant tones, and are almost a contradiction in art. Hassum will be speaking on \"The use and absence of color in modern art\" during Thursday's agenda."
-                }
-            ]
-
-            //get data from Restful web Service in development environment
-            //var urlForJson = "http://localhost:44363/api/Talents";
-
-            //get data from Restful web Service in production environment
-            //var urlForJson= "http://csc123.azurewebsites.net/api/talents";
-
-            //Url for the Cloud image hosting
-            //var urlForCloudImage = "http://res.cloudinary.com/doh5kivfn/image/upload/v1460006156/talents/";
-
-            //var searchField = $('#search').val();
-            //var myExp = new RegExp(searchField, "i");
-
-            //var output = '<ul class="searchresults">';
-            loadTalentsData();
-            //$.each(jsonData, function (key, val) {
-            //    if ((val.Name.search(myExp) != -1) ||
-            //        (val.Bio.search(myExp) != -1)) {
-            //        output += '<li>';
-            //        output += '<h2>' + val.Name + '</h2>';
-            //        //get the absolute path for local image
-            //        //output += '<img src="images/'+ val.ShortName +'_tn.jpg" alt="'+ val.Name +'" />';
-
-            //        //get the image from cloud hosting
-            //        //output += '<img src=' + urlForCloudImage + val.ShortName + "_tn.jpg alt=" + val.Name + '" />';
-            //        output += '<img src=' + 'https://talents-search.s3.amazonaws.com/' + val.ShortName + "_tn.jpg alt=" + val.Name + '" />';
-            //        output += '<p>' + val.Bio + '</p>';
-            //        output += '</li>';
-            //    }
-            //});
-            //output += '</ul>';
-            //$('#update').html(output);
-        }); //get JSON
-
-        function loadTalentsData() {
-            $loadTalentsDataHandler = jQuery.ajax({
-                url: '/api/Talents',
-                method: 'GET',
-                dataType: 'json',
-                cache: false,
-                tryCount: 0,
-                retryLimit: 3,
-                error: function (xhr, textStatus, errorThrown) {
-                    if (textStatus == 'timeout') {
-                        this.tryCount++;
-                        if (this.tryCount <= this.retryLimit) {
-                            //try again
-                            $.ajax(this);
-                            return;
-                        }
-                        return;
-                    }
-                }
-            }).done(function (data, textStatus, jqXHR) {
-                console.log(data);
-                var talentsList = data;
-                var talentId = "";
-                var talent;
-                var talentName = "";
-                var talentShortName = "";
-                var talentReknown = "";
-                var talentBio = "";
-                var $tableElement = null;
-                var $cellElement = null;
-                var $rowElement = null;
-                $tableBodyElement = $('#talentsTableBody');
-                var searchField = $('#search').val();
-                var myExp = new RegExp(searchField, "i");
-
-                var output = '<ul class="searchresults">';
-                for (index = 0; index < talentsList.length; index++) {
-                    talent = talentsList[index];
-                    talentId = talent.Id;
-                    talentName = talent.Name;
-                    talentShortName = talent.ShortName;
-                    talentReknown = talent.Reknown;
-                    talentBio = talent.Bio;
-
-                    output += '<li>';
-                    output += '<h2>' + talentName + '</h2>';
-
-                    //get the absolute path for local image
-                    //output += '<img src="images/'+ val.ShortName +'_tn.jpg" alt="'+ val.Name +'" />';
-
-                    //get the image from cloud hosting
-                    //output += '<img src=' + urlForCloudImage + val.ShortName + "_tn.jpg alt=" + val.Name + '" />';
-                    output += '<img src=' + 'https://talents-search.s3.amazonaws.com/' + talentShortName + "_tn.jpg alt=" + talentName + '" />';
-                    output += '<p>' + talentBio + '</p>';
-                    output += '</li>';
-
-                    //$rowElement = $('<tr></tr>');
-                    //$cellElement = $('<td></td>', { text: talentId });
-                    //$rowElement.append($cellElement);
-                    //$cellElement = $('<td></td>');
-                    ////$imgElement = $(`<img src='${urlForCloudImage + talent.ShortName + "_tn.jpg"}'>`);
-                    //$imgElement = $(`<img src='${talent.Photo}'>`);
-                    //$cellElement.append($imgElement);
-                    //$rowElement.append($cellElement);
-                    //$cellElement = $('<td></td>', { text: talentName });
-                    //$rowElement.append($cellElement);
-                    //$cellElement = $('<td></td>', { text: talentShortName });
-                    //$rowElement.append($cellElement);
-                    //$hyperLinkElement = $('<a class="edit" data-toggle="modal" onclick="loadEdit(' + talentId + ')"><i class="fa fa-edit"></i></a>').attr("href", "#editModal");
-                    //$cellElement = $('<td></td>');
-                    //$cellElement.append($hyperLinkElement);
-                    //$rowElement.append($cellElement);
-                    //$hyperLinkElement = $('<a class="trigger-btn" data-toggle="modal" onclick="loadDelete(' + talentId + ')"><i class="fa fa-trash mr-1"></i></a>').attr("href", "#myModal");
-                    //$cellElement = $('<td></td>');
-                    //$cellElement.append($hyperLinkElement);
-                    //$rowElement.append($cellElement);
-                    //$hyperLinkElement = $('<a class="details" href="/Talents/Details/' + talentId + '">Details</button>').addClass('btn btn-warning');
-                    //$cellElement = $('<td></td>');
-                    //$cellElement.append($hyperLinkElement);
-                    //$rowElement.append($cellElement);
-                    //$hyperLinkElement = $('<a class="details" href="/Talents/Comment/' + talentId + '">Comment</button>').addClass('btn btn-info');
-                    //$cellElement = $('<td></td>');
-                    //$cellElement.append($hyperLinkElement);
-                    //$rowElement.append($cellElement);
-                    ////Insert the $rowElement into the table element represented by $tableElement.
-                    //$tableBodyElement.append($rowElement);
-
-
-                }//end of for loop.
-                output += '</ul>';
-                $('#update').html(output);
-            }//end of JavaScript anonymous function
-            )//end of the done() method;
-        }
-
-
-    </script>*@
-
-<link rel="stylesheet" href="~/Scripts/fonts/fontawesome/css/fontawesome-all.css" />
-<link rel="stylesheet" href="~/Scripts/fonts/material-design-iconic-font/css/materialdesignicons.min.css" />
-
-
 <style>
     .list-group-item list-group-item-danger {
         width: 500px !important;
@@ -325,10 +141,7 @@
 </style>
 <div class="panel  panel-primary">
     <div class="panel-heading">
-        Manage Session Synopses
-        <div class="btn-group pull-right" style="margin-top: -7px;">
-            <button href="#exampleModal" class="btn btn-default btn-group-lg " data-toggle="modal" data-target="#exampleModal">Add Talent</button>
-        </div>
+        Manage Talents
     </div>
     <div class="panel-body">
         <div class="row">
@@ -336,14 +149,11 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>id</th>
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Short Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            <th>Details</th>
-                            <th>Comment</th>
+                            <th>Reknown</th>
+                            <th>Bio</th>
                         </tr>
                     </thead>
                     <tbody id="talentsTableBody"></tbody>
@@ -409,59 +219,6 @@
     </div>
 </div>
 
-<!-- Details Modal -->
-<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header modal-header-details" style="background-color:antiquewhite">
-                <h5 class="modal-title" id="exampleModalLabel" style="color:black;">Details</h5>
-                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </a>
-            </div>
-            <div class="modal-body">
-                <form role="form" id="detailsModalForm" class="form-horizontal">
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <img id="DetailsTalentpicInput" name="DetailsTalentpicInput" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-5" for="DetailsTalentNameInput">Name</label>
-                        <div class="col-md-5">
-                            <input type="text" id="DetailsTalentNameInput" name="DetailsTalentNameInput" class="form-control input-group-sm"
-                                   maxlength="30" value="" disabled />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-5" for="DetailsTalentShortNameInput">Short Name</label>
-                        <div class="col-md-5">
-                            <input type="text" id="DetailsTalentShortNameInput" name="DetailsTalentShortNameInput" class="form-control input-group-sm"
-                                   maxlength="30" value="" disabled />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-5" for="DetailsTalentReknownInput">Rekown</label>
-                        <div class="col-md-5">
-                            <input type="text" id="DetailsTalentReknownInput" name="DetailsTalentReknownInput" class="form-control input-group-sm"
-                                   maxlength="30" value="" disabled />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-5" for="DetailsTalentBioInput">Bio</label>
-                        <div class="col-md-5">
-                            <textarea id="DetailsTalentBioInput" name="DetailsTalentBioInput" class="form-control" disabled></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-dismiss="modal">Back</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -518,7 +275,7 @@
 </div>
 
 <!-- Delete Modal -->
-<div id="myModal" class="modal fade">
+<div id="deleteModal" class="modal fade">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header modal-header-delete">
@@ -543,51 +300,107 @@
 </div>
 
 @section Scripts {
-    <script>
-        loadTalentsData();
-        //Bucket Configurations
-        //var bucketName = 'spcscca2';
-        //var bucketRegion = 'us-east-1';
-        //var IdentityPoolId = "us-east-1:a20b1a53-df5c-4c6f-b110-e06d14830c69";
-        //AWS.config.update({
-        //    region: bucketRegion,
-        //    credentials: new AWS.CognitoIdentityCredentials({
-        //        IdentityPoolId: IdentityPoolId
-        //    })
-        //});
-        //var s3 = new AWS.S3({
-        //    apiVersion: '2006-03-01',
-        //    params: { Bucket: bucketName }
-        //});
-        //function addRecord() {
-        //    var s3 = new AWS.S3({
-        //        params: { Bucket: 'spcscca2' }
-        //    });
-        //    var file = document.getElementById('fileInput').files[0];
-        //    var fileUrl = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
 
-        //    if (file) {
-        //        console.log("ready to upload!");
-        //        s3.putObject({
-        //            Key: file.name,
-        //            ContentType: file.type,
-        //            Body: file,
-        //            ACL: "public-read"
-        //        },
-        //            function (err, data) {
-        //                if (data !== null) {
-        //                    alert("Got it!");
-        //                    uploadToRDS(fileUrl);
-        //                }
-        //                else {
-        //                    alert("Upload failed!");
-        //                }
-        //            });
-        //    }
-        //    else {
-        //        console.log("cannot find");
-        //    }
-        //}
+    <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.24.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (sessionStorage.getItem("user")) {
+                window.location.href = 'dashboard';
+            }
+        });
+
+        loadTalentsData();
+        // Overlaid on faces
+        //var overlay = "💩";
+        //var overlay = "☐";
+
+        // These will contain our canvas context later
+        var canvas, ctx;
+
+        // We'll populate this later
+        // clarifaiFaces gives us values between 0 and 1
+        // realFaces will store the real pixel positioning relative to the image size
+        var imageDetails = {
+            clarifaiFaces: [],
+            realFaces: []
+        };
+
+        var myApiKey = '';
+        // Initialize a new Clarifai app
+        var app = new Clarifai.App({
+            apiKey: myApiKey
+        });
+
+        var bucketName = 'yapjlbuckets3';
+        var bucketRegion = 'us-east-1';
+
+        AWS.config.update({
+            accessKeyId: '',
+            secretAccessKey: '',
+            sessionToken: ''
+
+        });
+
+
+        // This function calls the face detection alpha model and pushes the bounding boxes to imageDetails.clarifaiFaces
+        function faceDetection(b64Img) {
+            app.models.predict("a403429f2ddf4b49b307e318f00e528b", {
+                base64: b64Img
+            }).then(
+                function (res) {
+                    var data = res.outputs[0].data.regions;
+                    console.log(data);
+                    if (data == null) {
+                        console.log("data is null");
+                        alert("File not uploaded as no human was detected in the image");
+                        document.getElementById("addButton").disabled = true;
+                    }
+                    else if (data !== null) {
+                        for (var i = 0; i < data.length; i++) {
+                            //console.log(imageDetails.clarifaiFaces);
+                            imageDetails.clarifaiFaces.push(data[i].region_info.bounding_box);
+                        }
+                        //uploadFile();
+                        document.getElementById("addButton").disabled = false;
+                        console.log("success");
+                    }
+                },
+                function (err) {
+                    document.getElementById("message").innerHTML = "This image has nothing to identify";
+                    console.log(err);
+                }
+            )
+        } // End of FaceDetection function
+
+        function uploadFile() {
+            var s3 = new AWS.S3({
+                params: { Bucket: 'yapjlbuckets3' }
+            });
+            var file = document.getElementById('image').files[0];
+            var fileUrl = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
+            if (file) {
+                s3.putObject({
+                    Key: file.name,
+                    ContentType: file.type,
+                    Body: file,
+                    ACL: "public-read"
+                },
+                    function (err, data) {
+                        if (data !== null) {
+                            alert("Image uploaded in AWS S3!");
+                            uploadToRDS(fileUrl);
+                        }
+                        else {
+                            console.log('Theres an error', data);
+                            alert("UploadFile function has error!: " + err);
+                        }
+                    });
+            }
+        }
+
+        
         function loadTalentsData() {
             $loadTalentsDataHandler = jQuery.ajax({
                 url: '/api/Talents',
@@ -628,32 +441,17 @@
                     talentReknown = talent.reknown;
                     talentBio = talent.bio;
                     $rowElement = $('<tr></tr>');
-                    $cellElement = $('<td></td>', { text: talentId });
-                    $rowElement.append($cellElement);
                     $cellElement = $('<td></td>');
-                    //$imgElement = $(`<img src='${urlForCloudImage + talent.ShortName + "_tn.jpg"}'>`);
-                    $imgElement = $(`<img src='${talent.Photo}'>`);
+                    $imgElement = $(`<img src='${talent.url}'>`);
                     $cellElement.append($imgElement);
                     $rowElement.append($cellElement);
                     $cellElement = $('<td></td>', { text: talentName });
                     $rowElement.append($cellElement);
                     $cellElement = $('<td></td>', { text: talentShortName });
                     $rowElement.append($cellElement);
-                    $hyperLinkElement = $('<a class="edit" data-toggle="modal" onclick="loadEdit(' + talentId + ')"><i class="fa fa-edit"></i></a>').attr("href", "#editModal");
-                    $cellElement = $('<td></td>');
-                    $cellElement.append($hyperLinkElement);
+                    $cellElement = $('<td></td>', { text: talentReknown });
                     $rowElement.append($cellElement);
-                    $hyperLinkElement = $('<a class="trigger-btn" data-toggle="modal" onclick="loadDelete(' + talentId + ')"><i class="fa fa-trash mr-1"></i></a>').attr("href", "#myModal");
-                    $cellElement = $('<td></td>');
-                    $cellElement.append($hyperLinkElement);
-                    $rowElement.append($cellElement);
-                    $hyperLinkElement = $('<a class="details" href="/Talents/Details/' + talentId + '">Details</button>').addClass('btn btn-warning');
-                    $cellElement = $('<td></td>');
-                    $cellElement.append($hyperLinkElement);
-                    $rowElement.append($cellElement);
-                    $hyperLinkElement = $('<a class="details" href="/Talents/Comment/' + talentId + '">Comment</button>').addClass('btn btn-info');
-                    $cellElement = $('<td></td>');
-                    $cellElement.append($hyperLinkElement);
+                    $cellElement = $('<td></td>', { text: talentBio });
                     $rowElement.append($cellElement);
                     //Insert the $rowElement into the table element represented by $tableElement.
                     $tableBodyElement.append($rowElement);
@@ -662,5 +460,364 @@
             )//end of the done() method;
         }
         /**/
-        </script>
+
+        function addRecord() {
+            var s3 = new AWS.S3({
+                params: { Bucket: 'yapjlbuckets3' }
+            });
+            var file = document.getElementById('fileInput').files[0];
+            var fileUrl = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
+
+            if (file) {
+                console.log("ready to upload!");
+                s3.putObject({
+                    Key: file.name,
+                    ContentType: file.type,
+                    Body: file,
+                    ACL: "public-read"
+                },
+                    function (err, data) {
+                        if (data !== null) {
+                            uploadToRDS(fileUrl);
+                        }
+                        else {
+                            alert("Upload failed!");
+                        }
+                    });
+            }
+            else {
+                console.log("cannot find");
+            }
+        }
+
+
+        function WebFormData(inName, inShortName, inReknown, inBio, inPhoto) {
+            this.Name = inName;
+            this.ShortName = inShortName;
+            this.Reknown = inReknown;
+            this.Bio = inBio;
+            this.Photo = inPhoto;
+        }
+
+        function uploadToRDS(PhotoUrl) {
+            $(`#createSpinner`).removeClass("hidden");
+            $(`#addButton`).attr("disabled", true);
+            var collectedTalentName = $('#TalentNameInput').val();
+            var collectedTalentShortName = $('#TalentShortNameInput').val();
+            var collectedTalentReknown = $('#TalentReknownInput').val();
+            var collectedTalentBio = $('#TalentBioInput').val();
+
+            console.log(PhotoUrl);
+            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentReknown, collectedTalentBio, PhotoUrl);
+            var webFormDataInString = JSON.stringify(webFormData);
+            console.log(webFormData);
+
+            $saveTalentHandler = jQuery.ajax({
+                type: 'POST',
+                url: '/api/Talents',
+                dataType: 'json',
+                //tryCount: 0,
+                //retryLimit: 3,
+                //error: function (xhr, textStatus, errorThrown) {
+                //    if (textStatus == 'timeout') {
+                //        this.tryCount++;
+                //        if (this.tryCount <= this.retryLimit) {
+                //            //try again
+                //            $.ajax(this);
+                //            return;
+                //        }
+                //        return;
+                //    }
+                //},
+                //contentType: 'application/json',
+                 //webFormDataInString
+                data: {
+                    Name: $('#TalentNameInput').val(),
+                    ShortName: $('#TalentShortNameInput').val(),
+                    Reknown: $('#TalentReknownInput').val(),
+                    Bio: $('#TalentBioInput').val(),
+                    Url: PhotoUrl
+                }
+            });
+            $saveTalentHandler.done(function (data, textStatus, jqXHR) {
+                alert("A new Talent record is created successfully");
+                console.log("A new Talent record is created successfully");
+            });
+            $saveTalentHandler.fail(function (jqXHR, textStatus) {
+                alert("Failed to create talent!");
+                console.log("FAIL");
+            });
+        }
+
+        function fileValidation() {
+            var fileInput = document.getElementById('fileInput');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+                fileInput.value = '';
+                return false;
+            } else {
+                //Image preview
+                if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        //$('#changeImage')
+                        //    .attr('src', e.target.result);
+                        //$(`.imgContainer`).css("display", "block");
+                        //let image = e.target.result;
+                        //image = image.replace("data:image/jpeg;base64,", "");
+                        ////validateFileInputs(image);
+                        //faceDetection(image.b64Clarifai);
+
+                        imageDetails.b64 = e.target.result;
+                        $("#changeImage").attr("src", imageDetails.b64);
+                        $(`.imgContainer`).css("display", "block");
+                        imageDetails.b64Clarifai = imageDetails.b64.replace(/^data:image\/(.*);base64,/, '');
+                        imageDetails.width = $("img").width();
+                        imageDetails.height = $("img").height();
+                        faceDetection(imageDetails.b64Clarifai);
+
+                    };
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
+            }
+
+            //if (this.files[0]) {
+            //    var reader = new FileReader();
+            //    reader.onload = function (e) {
+            //        console.log("This is the start ", imageDetails.clarifaiFaces.length)
+            //        imageDetails.b64 = e.target.result;
+            //        $("img").attr("src", imageDetails.b64);
+            //        imageDetails.b64Clarifai = imageDetails.b64.replace(/^data:image\/(.*);base64,/, '');
+            //        imageDetails.width = $("img").width();
+            //        imageDetails.height = $("img").height();
+            //        faceDetection(imageDetails.b64Clarifai);
+            //    }
+            //    reader.readAsDataURL(this.files[0]);
+            //}
+
+        }
+
+        function loadEdit(id) {
+            $.ajax({
+                type: "GET",
+                url: `/API/Talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                success: function (data) {
+                    console.log(data);
+                    var talent = data;
+                    var loadedTalentName = talent.name;
+                    var loadedTalentShortName = talent.shortName;
+                    var loadedTalentReknown = talent.reknown;
+                    var loadedTalentBio = talent.bio;
+                    var loadedTalentID = talent.id
+                    //Populate the respective input controls with the talent details.
+                    $('#editPhoto').attr("src", talent.url);
+                    $('#UpdateTalentNameInput').val(loadedTalentName);
+                    $('#UpdateTalentShortNameInput').val(loadedTalentShortName);
+                    $('#UpdateTalentReknownInput').val(loadedTalentReknown);
+                    $('#UpdateTalentBioInput').val(loadedTalentBio);
+                    $('#editId').val(loadedTalentID);
+                },
+                error: function () {
+                    alert("Fail to get data for Talent " + id);
+                }
+            });
+        }
+
+        //reset edit modal
+        function resetEdit() {
+            var id = $(`#editId`).val();
+            $.ajax({
+                type: "GET",
+                url: `/API/Talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                success: function (data) {
+                    $('#UpdateTalentNameInput').val(data.Name);
+                    $('#UpdateTalentShortNameInput').val(data.ShortName);
+                    $('#UpdateTalentReknownInput').val(data.Reknown);
+                    $('#UpdateTalentBioInput').val(data.Bio);
+                    $('#editId').val(data.Id);
+                },
+                error: function () {
+                    alert("Fail to get data for Talent " + id);
+                }
+            });
+        }
+
+        //Replace picture in the edit modal
+        function editPhotoFunction(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#editPhoto')
+                        .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function updateTalent() {
+            var s3 = new AWS.S3({
+                params: { Bucket: 'yapjlbuckets3' }
+            });
+            var file = document.getElementById('newphoto').files[0];
+            if (file) {
+                var fileUrl = 'https://' + bucketName + '.s3.amazonaws.com/' + file.name;
+                console.log("ready to change photo!");
+                s3.putObject({
+                    Key: file.name,
+                    ContentType: file.type,
+                    Body: file,
+                    ACL: "public-read"
+                },
+                    function (err, data) {
+                        if (data !== null) {
+                            updateToRDS(fileUrl);
+                        }
+                        else {
+                            alert("Upload failed!");
+                        }
+                    });
+            }
+            else {
+                console.log("photo does not change");
+                var url = $('#editPhoto').attr("src");
+                updateToRDS(url);
+            }
+        }
+
+
+        function updateToRDS(photoURLToUpdate) {
+            $(`#updateEditSpinner`).removeClass("hidden");
+            $(`#saveButton`).attr("disabled", true);
+            var collectedTalentName = $('#UpdateTalentNameInput').val();
+            var collectedTalentShortName = $('#UpdateTalentShortNameInput').val();
+            var collectedTalentRekown = $('#UpdateTalentReknownInput').val();
+            var collectedTalentBio = $('#UpdateTalentBioInput').val();
+            var collectedTalentID = $('#editId').val();
+            let nameid = collectedTalentShortName.replace("_", "");
+
+            console.log(photoURLToUpdate);
+            var webFormData = new WebFormData(collectedTalentName, collectedTalentShortName, collectedTalentRekown, collectedTalentBio, photoURLToUpdate);
+            var webFormDataInString = JSON.stringify(webFormData);
+            console.log(webFormData);
+            $updateTalentHandler = jQuery.ajax({
+                type: 'PUT',
+                url: `/API/Talents/${collectedTalentID}`,
+                //contentType: 'application/json',
+                //tryCount: 0,
+                //retryLimit: 3,
+                //error: function (xhr, textStatus, errorThrown) {
+                //    if (textStatus == 'timeout') {
+                //        this.tryCount++;
+                //        if (this.tryCount <= this.retryLimit) {
+                //            //try again
+                //            $.ajax(this);
+                //            return;
+                //        }
+                //        return;
+                //    }
+                //},
+                data: {
+                    Name: $('#UpdateTalentNameInput').val(),
+                    ShortName: $('#UpdateTalentShortNameInput').val(),
+                    Reknown: $('#UpdateTalentReknownInput').val(),
+                    Bio: $('#UpdateTalentBioInput').val(),
+                    Url: photoURLToUpdate
+                }
+            })
+            $updateTalentHandler.done(function (textStatus, jqXHR) {
+                alert(" Talent is updated successfully");
+            });
+            $updateTalentHandler.fail(function (jqXHR, textStatus) {
+                alert(" Talent update failed");
+            });
+        }
+
+
+        function loadDelete(id) {
+            $.ajax({
+                type: "GET",
+                url: `/API/Talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+                success: function (data) {
+                    console.log(data);
+                    $("#deleteRec").text(`Do you really want to delete ${data.name} ?`);
+                    $("#deleteId").val(id);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        //Delete record in the backend and frontend
+        function deleteRecord() {
+            var id = $("#deleteId").val();
+            $.ajax({
+                type: "DELETE",
+                url: `/api/talents/${id}`,
+                dataType: "json",
+                tryCount: 0,
+                retryLimit: 3,
+                error: function (xhr, textStatus, errorThrown) {
+                    if (textStatus == 'timeout') {
+                        this.tryCount++;
+                        if (this.tryCount <= this.retryLimit) {
+                            //try again
+                            $.ajax(this);
+                            return;
+                        }
+                        return;
+                    }
+                },
+            }).done(function (data, textStatus, jqXHR) {
+                alert(" Talent is deleted successfully");
+            }).fail(function (data) {
+                console.log(data);
+                alert(" Talent cannot be deleted");
+            });
+        }
+
+    </script>
 }
