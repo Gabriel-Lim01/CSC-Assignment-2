@@ -59,7 +59,7 @@ using TheLifeTimeTalents.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(27, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb1a031cfd1a4b5287a887bebb453f09", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f94def95f74e4e1ca0ed12777b6f3fe7", async() => {
                 BeginContext(33, 63, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <title>Login Page</title>\r\n");
                 EndContext();
@@ -79,7 +79,7 @@ using TheLifeTimeTalents.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(105, 1802, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5cfe093e3b9b4ac486ab5438c1df79f5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5e7b87ed7c54a76ba8333e9039ec819", async() => {
                 BeginContext(111, 363, true);
                 WriteLiteral(@"
     <div id=""login"">
@@ -91,7 +91,7 @@ using TheLifeTimeTalents.Models;
                         ");
                 EndContext();
                 BeginContext(474, 1324, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fba1bf146eb649feb0782c3f4b4d7071", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "353abd821c9f4af7b758f4be1e4258cc", async() => {
                     BeginContext(528, 1263, true);
                     WriteLiteral(@"
                             <h3 class=""text-center text-info"">Login</h3>

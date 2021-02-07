@@ -35,7 +35,7 @@ namespace TheLifeTimeTalents.Controllers
             Db = db;
         }
 
-        // GET api/blog
+        // GET api/Talents
         [HttpGet]
         public async Task<IActionResult> GetLatest()
         {
@@ -45,7 +45,7 @@ namespace TheLifeTimeTalents.Controllers
             return new OkObjectResult(result);
         }
 
-        // GET api/blog/5
+        // GET api/Talents/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOne(int id)
         {
@@ -57,9 +57,9 @@ namespace TheLifeTimeTalents.Controllers
             return new OkObjectResult(result);
         }
 
-        // POST api/blog
+        // POST api/Talents
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Talent body)
+        public async Task<IActionResult> Post([FromForm] Talent body)
         {
             await Db.Connection.OpenAsync();
             body.Db = Db;
@@ -67,9 +67,9 @@ namespace TheLifeTimeTalents.Controllers
             return new OkObjectResult(body);
         }
 
-        // PUT api/blog/5
+        // PUT api/Talents/2
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOne(int id, [FromBody] Talent body)
+        public async Task<IActionResult> PutOne(int id, [FromForm] Talent body)
         {
             await Db.Connection.OpenAsync();
             var query = new TalentQuery(Db);
@@ -85,7 +85,7 @@ namespace TheLifeTimeTalents.Controllers
             return new OkObjectResult(result);
         }
 
-        // DELETE api/blog/5
+        // DELETE api/Talents/2
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOne(int id)
         {
@@ -98,7 +98,7 @@ namespace TheLifeTimeTalents.Controllers
             return new OkResult();
         }
 
-        // DELETE api/blog
+        // DELETE api/Talents
         [HttpDelete]
         public async Task<IActionResult> DeleteAll()
         {
