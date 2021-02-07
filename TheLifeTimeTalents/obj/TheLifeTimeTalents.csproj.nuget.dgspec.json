@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ACTUALCSC\\CSC-Assignment-2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj": {}
+    "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj": {}
   },
   "projects": {
-    "C:\\ACTUALCSC\\CSC-Assignment-2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj": {
+    "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ACTUALCSC\\CSC-Assignment-2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
+        "projectUniqueName": "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
         "projectName": "TheLifeTimeTalents",
-        "projectPath": "C:\\ACTUALCSC\\CSC-Assignment-2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
-        "packagesPath": "C:\\Users\\yapju\\.nuget\\packages\\",
-        "outputPath": "C:\\ACTUALCSC\\CSC-Assignment-2\\TheLifeTimeTalents\\obj\\",
+        "projectPath": "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\TheLifeTimeTalents.csproj",
+        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gabriel\\Desktop\\Poly stuff\\CSC\\CSC Assignment 2\\TheLifeTimeTalents\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yapju\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "net461": {
+            "targetAlias": "net461",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "net461": {
+          "targetAlias": "net461",
           "dependencies": {
             "Microsoft.AspNet.WebApi.Core": {
               "target": "Package",
@@ -71,7 +73,7 @@
               "version": "[39.34.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

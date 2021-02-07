@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] TheLifeTimeTalents</title>
+    <title>Dashboard</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -16,6 +20,7 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
+
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -30,16 +35,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Register">Register</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Dashboard">Home</a></li>
+                    <li><a id="logout">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container body-content">
-        @RenderBody()
+        <h1>Dashboard</h1>
         <hr />
         <footer>
             <p>&copy; 2021 - TheLifeTimeTalents</p>
@@ -66,7 +70,19 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (!sessionStorage.getItem("user")) {
+            document.body.innerHTML = "<h1>403 Unauthorized</h1>";
+        }
+    });
+
+    $("#logout").click(function (e) {
+        e.preventDefault();
+        sessionStorage.removeItem("user");
+        window.location.href = "index";
+    });
+</script>

@@ -59,7 +59,7 @@ namespace TheLifeTimeTalents.Controllers
 
         // POST api/blog
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Talent body)
+        public async Task<IActionResult> Post([FromForm] Talent body)
         {
             await Db.Connection.OpenAsync();
             body.Db = Db;
@@ -69,7 +69,7 @@ namespace TheLifeTimeTalents.Controllers
 
         // PUT api/blog/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOne(int id, [FromBody] Talent body)
+        public async Task<IActionResult> PutOne(int id, [FromForm] Talent body)
         {
             await Db.Connection.OpenAsync();
             var query = new TalentQuery(Db);
