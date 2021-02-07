@@ -509,7 +509,7 @@
             realFaces: []
         };
 
-        var myApiKey = 'f0018d0c6bad4411995a0fc43ca31830';
+        var myApiKey = '';
         // Initialize a new Clarifai app
         var app = new Clarifai.App({
             apiKey: myApiKey
@@ -519,9 +519,9 @@
         var bucketRegion = 'us-east-1';
 
         AWS.config.update({
-            accessKeyId: 'ASIAYDRCLMU456L4AN7C',
-            secretAccessKey: 'rov82g7wjdt9cnQjwk6pT/M1UU7cE9NWYbbsawsx',
-            sessionToken: 'FwoGZXIvYXdzEGoaDDwdW0+SgnQqnsC4tCLIAesCEN8rvjY4j8s1FFkcvkxRE2/MFrp1M/xFlT7UQpZetsyIbOAbtubEmeQuxE90K1hKmO7d3E1JWJUZ6lCRt5NMeqQhHLiv1kyfNsmjuAst5CPq6gRNPGFUAVoB42n01Hozw+JtauUGZw6dGHX66Aw/sM+dS1pfS/+TAVMDQT7CGF/hiU70ndfdtKPzGJYxv4hfBRG+qg9IjAmKw3RJxNf+vsvKgJiYSXuTgBIQe5p8Zhayc98dBYFN3Sq3UvT/GfOGwFi6An26KL7v/IAGMi2YbLVN/ZnfgjEa7GwTmHkHgIyOC2k8W/QnSdJcPPAFtf/9jvarAWG1UEhClhA='
+            accessKeyId: '',
+            secretAccessKey: '',
+            sessionToken: ''
 
         });
 
@@ -645,7 +645,7 @@
                     $cellElement = $('<td></td>');
                     $cellElement.append($hyperLinkElement);
                     $rowElement.append($cellElement);
-                    $hyperLinkElement = $('<a class="details" href="/Talents/Comment/' + talentId + '">Comment</button>').addClass('btn btn-info');
+                    $hyperLinkElement = $('<a class="details" href="/Home/Comment/'/* + talentId*/ + '">Comment</button>').addClass('btn btn-info');
                     $cellElement = $('<td></td>');
                     $cellElement.append($hyperLinkElement);
                     $rowElement.append($cellElement);

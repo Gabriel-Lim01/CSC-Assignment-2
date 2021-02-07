@@ -687,3 +687,4 @@ C:\ACTUALCSC\CSC-Assignment-2\TheLifeTimeTalents\obj\Debug\net461\TheLifeTimeTal
 C:\ACTUALCSC\CSC-Assignment-2\TheLifeTimeTalents\bin\Debug\net461\MySqlConnector.dll
 C:\ACTUALCSC\CSC-Assignment-2\TheLifeTimeTalents\obj\Debug\net461\TheLifeTimeTalents.csproj.CoreCompileInputs.cache
 C:\ACTUALCSC\CSC-Assignment-2\TheLifeTimeTalents\obj\Debug\net461\UserSecretsAssemblyInfo.cs
+C:\ACTUALCSC\CSC-Assignment-2\TheLifeTimeTalents\obj\Debug\net461\Razor\Views\Home\Comment.cshtml.g.cs

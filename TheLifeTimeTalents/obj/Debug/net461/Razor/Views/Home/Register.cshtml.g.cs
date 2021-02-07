@@ -57,7 +57,7 @@ using TheLifeTimeTalents.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(0, 52, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "779d7eef37cb4372bf70056bdbe0d680", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6df623d37a5243368143a7424f73234d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -76,7 +76,7 @@ using TheLifeTimeTalents.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(54, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "aeae9e3e20374dae8cdd1c2bcbc2e1ae", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "32dca9c1bc854e468083316f3962e81f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -95,7 +95,7 @@ using TheLifeTimeTalents.Models;
             WriteLiteral("\r\n<!-- Load Stripe.js on your website. -->\r\n<!--<script src=\"https://js.stripe.com/v3/\"></script>-->\r\n\r\n");
             EndContext();
             BeginContext(207, 1973, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c94e0f138a2440e6940c983191b3b813", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1655155b90f14a5b861375d3bab3bf2f", async() => {
                 BeginContext(213, 975, true);
                 WriteLiteral(@"
     <div class=""togethere-background""></div>
@@ -124,7 +124,7 @@ using TheLifeTimeTalents.Models;
                     ");
                 EndContext();
                 BeginContext(1188, 110, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38a06f2abbff43a89f406211900d968e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f61c5b7efa414a9196db7a56dbba8df1", async() => {
                     BeginContext(1220, 71, true);
                     WriteLiteral("\r\n                        <button>Select</button>\r\n                    ");
                     EndContext();
